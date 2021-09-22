@@ -1,0 +1,7 @@
+virt
+*.pyc
+.DS_Store
+.env
+Lecture
+datas
+Training - Test

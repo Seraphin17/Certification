@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Quality wine</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<style>
+    body {
+        background-color: #F0F8FF;
+    }
+    div {
+        color: #F0F8FF;
+        border: 3px solid #FFFFFF;
+        background-color: #742f37;
+    }
+    fieldset {
+        border: 3px solid #742f37;
+        background-color: #F19CBB;
+    }
+
+    legend {
+        color: black;
+    }
+
+    ul {
+        color: #F0F8FF;
+        background-color: red;
+        
+    }
+
+   
+
+</style>
+<body>
+    <nav>
+      <ul
+          <li><a href='documentation'>READ ME : API DOCUMENTATION</a></li>
+      </ul>
+    </nav>
+</body>
+
+<body>
+    <form action="{{url_for('index')}}" method="POST">
+        <div style="text-align:center">
+            <h1>WINE QUALITY PREDICTION !</h1>
+        </div>
+        <fieldset>
+            <legend align="center">** MANUAL INPUT : NUMERICAL VALUES ** </legend>
+            <br>
+            * Fixed acidity (3.80 to 15.90) :  
+            <input name="fixed_acidity" type="float" value="0" required>
+            <br>
+            <br>
+            * Volatile_acidity (0.08 to 1.58) : 
+            <input name="volatile_acidity" type="float" value="0" required>
+            <br>
+            <br>
+            * Citric acid (0.00 to 1.66): 
+            <input name="citric_acid" type="float" value="0" required>
+            <br>
+            <br>
+            * Residual_sugar (0.600 to 65.800) : 
+            <input name="residual_sugar" type="float" value="0" required>
+            <br>
+            <br>
+            * Chlorides (0.009 to 0.611) : 
+            <input name="chlorides" type="float" value="0" required>
+            <br>
+            <br>
+            * Free sulfur dioxide (1.0 to 289.0) : 
+            <input name="free_sulfur_dioxide" type="float" value="0" required>
+            <br>
+            <br>
+            * Total sulfur dioxide (6 to 440.0) : 
+            <input name="total_sulfur_dioxide" type="float" value="0" required>
+            <br>
+            <br>
+            * Density (0.987 to 1.039) : 
+            <input name="density" type="float" value="0" required>
+            <br>
+            <br>
+            * PH (2.720 to 4.010) : 
+            <input name="pH" type="float" value="0" required>
+            <br>
+            <br>
+            * Sulphates (0.220 to 2.000) : 
+            <input name="sulphates" type="float" value="0" required>
+            <br>
+            <br>
+            * Alcohol (8 to 14.9) : 
+            <input name="alcohol" type="float" value="0" required>
+            <br>
+            <br>
+            <input type="submit">
+        </fieldset>
+    </form>
+    <br>
+<div class="result" align='center'>
+    {% if result %}
+        <br>
+        Wine valuation : 
+            <p style="font-size:30px">{{ result }}</p>    
+            <td><span style="font-size: 50px;">👍 🍷</span></td> 
+    {% endif %}
+</div>
+
+</body>
+</html>

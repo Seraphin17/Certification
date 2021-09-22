@@ -1,0 +1,102 @@
+# Wine_o_meter
+ Deployment project Heroku
+
+ 
+{% block content %}
+<div class="centered">
+  <h1>API Documentation</h1>
+  <p>
+    Welcome to the API documentation for our Machine Learning application on Quality Wine.
+  </p>
+  <p>
+    This API will help you choose the best quality wine based on your preferences. 
+    Therefore, you will be enjoying your glass of wine for the evening.
+</p>
+  <div>
+    <h2>Endpoint 1 : Enter data</h2>
+    <blockquote>
+        GET / POST : https://ynoudjoukouang-wine1.herokuapp.com/
+      </blockquote>
+      <div>
+        <p>
+          This endpoint allows you to make a prediction of quality wine with the characteristics that you will enter (ex: Alcohol, Chlorides ; float) 
+        </p>
+        <h3>
+          How to request this endpoint?
+        </h3>
+        <p>
+          You just have to click on the button "submit" after having entered the data (11 features).<br>
+          The submit button will use the POST method. <br>
+          It will use the root ("https://ynoudjoukouang-wine1.herokuapp.com/")<br>
+          The root actually applies the Machine Learning model trained. 
+          
+        </p>
+        <p>
+          Example: Input data and click on "SUBMIT"
+        </p>
+        <p>
+          It returns a such message "The characteristics of this wine give the mark of : 7.0 / 10." 👍 🍷
+          <p>
+   
+            
+    <h2>Endpoint 2 : API request</h2>
+    <blockquote>
+      POST : https://ynoudjoukouang-wine1.herokuapp.com/predict_API
+    </blockquote>
+    <div>
+      <p>
+        This endpoint allows you to make a prediction of quality wine with the characteristics that you send/post.
+      </p>
+      <h3>
+        How to request this endpoint?
+      </h3>
+      <p>
+        You should request this endpoint using a POST method with a JSON content. Your JSON should contain the 11 items required (ex: Alcohol, Chlorides ; float).
+      </p>
+      <p>
+        Example 1: <code>curl -i -H "Content-Type: application/json" -X POST -d '{"input": [[6.6,0.16,0.4,1.5,0.044,48,143,0.9912,3.54,0.52,12.4]]}' https://ynoudjoukouang-wine1.herokuapp.com/predict_API</code>
+      </p>
+      <p>
+        It returns a JSON like this:
+        <pre>
+          <code>
+  {
+    'predict': 7.0
+  }
+  <p>
+      <div>
+    Example 2: <code>import requests<br>
+
+        response = requests.post("https://ynoudjoukouang-wine1.herokuapp.com/predict_API", json={
+            "input": [[6.6,0.16,0.4,1.5,0.044,48,143,0.9912,3.54,0.52,12.4]]
+        })
+        print(response.json())
+        </code>
+  </p>
+  <p>
+    It returns a JSON like this:
+    <pre>
+      <code>
+{
+'predict': 7.0
+}
+      </code>
+    </div>
+
+      <h3>
+        Errors
+      </h3>
+      <p>
+        Our API will return an error with format:
+        <pre>
+      <p>
+        "msg": "Error: not a JSON or no specific key in your request"
+      </p>
+      <p>
+        ENJOY YOUR WINE !
+      </p>
+    </div>
+    
+  </div>
+</div>
+{% endblock %}
